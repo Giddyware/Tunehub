@@ -1,3 +1,21 @@
-const SongDetails = () => <div>SongDetails</div>;
+import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+
+import { DetailsHeader, Error, Loader, RelatedSongs } from "../components";
+import { setActiveSong, playPause } from "../redux/features/playerSlice";
+
+const SongDetails = () => {
+  const dispatch = useDispatch();
+  const { activeSong, isPlaying } = useSelector((state) => state.palyer);
+  const { songid } = useParams();
+
+  console.log(songid);
+
+  return (
+    <div className="flex flex-col">
+      <DetailsHeader artistId={artistId} songData={songData} />
+    </div>
+  );
+};
 
 export default SongDetails;
